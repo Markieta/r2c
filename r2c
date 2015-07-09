@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+    echo 'Please specify the source RPM'
+    echo "Usage: $(basename "$0") package.src.rpm"
+    exit 1
+fi
+
+rpm2cpio "$1" | cpio -idmv
